@@ -1,42 +1,44 @@
 import React from 'react';
-import Counter from './counter.react.js';
-import {increment, decrement} from '../action-creators/action-creators.redux.js';
-import {connect} from 'react-redux';
+import Store from '../stores/store.redux.js';
 
-
-const mapStateToProps = (state) => {
-	return {
-		counter: state.counter
-	}
-}
-
-const mapDispatchToProps = (dispatch) => {
-	return {
-		increment() {
-			dispatch(increment());
-		},
-		decrement() {
-			dispatch(decrement());
-		}
-	}
-}
 
 class App extends React.Component {
-	constructor(props) {
-		super(props);
+	constructor() {
+		super()
+	}
+
+	changeState(state) {
+		this.setState({counter: state});
+	}
+
+	componentWillMount() {
+		const state = Store.getState();
+
+		this.changeState(state);
+	}
+
+	componentDidMount() {
+		this.unsubscribe = Store.subscribe(() => {
+			const state = Store.getState();
+
+			this.changeState(state);
+		});
+	}
+
+	componentWillUnmount() {
+		this.unsubscribe();
 	}
 
 	render() {
 		return (
 			<div>
-				<Counter
-					counter={this.props.counter}
-					increment={this.props.increment}
-					decrement={this.props.decrement} />
+				<h1>{this.state.counter}</h1>
+				<button onClick={() => Store.dispatch({type: 'INCREMENT'})}>+</button>
+				<button onClick={() => Store.dispatch({type: 'DECREMENT'})}>-</button>
 			</div>
-	    );
+		);
 	}
-};
+}
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default App;

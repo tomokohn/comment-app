@@ -1,15 +1,15 @@
-const post = (state = 0, action) => {
+const counter = (state = 0, action) => {
 	switch (action.type) {
-		case 'INCREMENT':
+		case 'INCREMENT': 
 			return state + 1;
 
 		case 'DECREMENT':
 			return state - 1;
 
-		default:
+		default: 
 			return state;
 	}
 }
 
 
-export default post;
+export default counter;
