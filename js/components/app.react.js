@@ -1,5 +1,5 @@
 import React from 'react';
-import Store from '../stores/store.redux.js';
+import Store from '../store.redux.js';
 import {increment, decrement} from '../action-creators/action-creators.redux.js';
 
 class App extends React.Component {
