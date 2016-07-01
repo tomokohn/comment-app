@@ -1,19 +1,23 @@
 import React from 'react';
 import Store from '../stores/store.redux.js';
-
+import {increment, decrement} from '../action-creators/action-creators.redux.js';
 
 class App extends React.Component {
 	constructor() {
 		super();
 	}
 
-	componentWillMount() {
-		this.setState({counter: Store.getState()});
+	changeState() {
+		let {counter} = Store.getState();
+
+		this.setState({counter});
 	}
 
-	componentDidMount() {
+	componentWillMount() {
+		this.changeState();
+
 		this.unsubscribe = Store.subscribe(() => {
-			this.setState({counter: Store.getState()});
+			this.changeState();
 		});
 	}
 
@@ -25,12 +29,11 @@ class App extends React.Component {
 		return (
 			<div>
 				<h1>{this.state.counter}</h1>
-				<button onClick={() => Store.dispatch({type: 'INCREMENT'})}>+</button>
-				<button onClick={() => Store.dispatch({type: 'DECREMENT'})}>-</button>
+				<button onClick={() => Store.dispatch(increment())}>+</button>
+				<button onClick={() => Store.dispatch(decrement())}>-</button>
 			</div>
 		);
 	}
 }
-
 
 export default App;
