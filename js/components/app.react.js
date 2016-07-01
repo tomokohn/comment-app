@@ -4,24 +4,16 @@ import Store from '../stores/store.redux.js';
 
 class App extends React.Component {
 	constructor() {
-		super()
-	}
-
-	changeState(state) {
-		this.setState({counter: state});
+		super();
 	}
 
 	componentWillMount() {
-		const state = Store.getState();
-
-		this.changeState(state);
+		this.setState({counter: Store.getState()});
 	}
 
 	componentDidMount() {
 		this.unsubscribe = Store.subscribe(() => {
-			const state = Store.getState();
-
-			this.changeState(state);
+			this.setState({counter: Store.getState()});
 		});
 	}
 
