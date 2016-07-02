@@ -1,16 +1,17 @@
 import React from 'react';
 import Store from '../store.redux.js';
-import {increment, decrement} from '../action-creators/action-creators.redux.js';
+import List  from './list.react';
 
 class App extends React.Component {
 	constructor() {
 		super();
+		this.state = {id:0} ;
 	}
 
 	changeState() {
-		let {counter} = Store.getState();
+		let {comments} = Store.getState();
 
-		this.setState({counter});
+		this.setState({comments});
 	}
 
 	componentWillMount() {
@@ -28,12 +29,24 @@ class App extends React.Component {
 	render() {
 		return (
 			<div>
-				<h1>{this.state.counter}</h1>
-				<button onClick={() => Store.dispatch(increment())}>+</button>
-				<button onClick={() => Store.dispatch(decrement())}>-</button>
+				<button onClick={() => Store.dispatch({
+					type: 'ADD_COMMENT',
+					id: this.state.id++,
+					email: 'tomokohn@gmail.com',
+					massage: 'test text'
+				})}>+</button>
+				<List />
 			</div>
 		);
 	}
 }
 
 export default App;
+
+//<ul>
+//	{this.state.comments.map(comment =>
+//		<li key={comment.id}>
+//			<h2>{comment.email}</h2>
+//			<p>{comment.massage}</p>
+//		</li>)}
+//</ul>

@@ -1,9 +1,9 @@
 import {createStore, combineReducers, applyMiddleware} from 'redux';
-import comments from './reducers/comments.redux';
+import counter from './reducers/counter.redux.js';
 import delay from './middleware/delay.redux.js';
 
 const reducer = combineReducers({
-	comments
+	counter
 });
 
 const store = createStore(reducer, applyMiddleware(delay));
