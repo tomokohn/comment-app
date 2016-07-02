@@ -1,5 +1,6 @@
 import React from 'react';
 import Store from '../store.redux.js';
+import md5 from '../md5.min'
 
 class List extends React.Component {
 	constructor() {
@@ -30,6 +31,7 @@ class List extends React.Component {
 				<ul>
 					{this.state.comments.map(comment =>
 						<li key={comment.id}>
+							<img src={`http://www.gravatar.com/avatar/${md5(comment.email.toLowerCase())}`}/>
 							<h2>{comment.email}</h2>
 							<p>{comment.massage}</p>
 						</li>)}
