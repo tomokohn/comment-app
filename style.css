@@ -1,0 +1,19 @@
+.input {
+    display: block;
+    margin: 10px auto;
+}
+
+.filter {
+    display: block;
+    margin: 10px auto;
+
+
+}
+
+ul {
+    list-style: none;
+}
+h2 {
+    display: inline-block;
+    margin: 0px;
+}

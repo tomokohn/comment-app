@@ -6,6 +6,7 @@ class List extends React.Component {
 	constructor() {
 		super();
 		this.state = {id:0} ;
+		this.listView= this.listView.bind(this);
 	}
 
 	changeState() {
@@ -26,18 +27,36 @@ class List extends React.Component {
 		this.unsubscribe();
 	}
 
+	listView(){
+     return this.state.comments.map((comment) => {
+			 console.log(comment)
+
+			 if (comment.visible === true) {
+				return (
+					<li key={comment.id}>
+					<img src={`http://www.gravatar.com/avatar/${md5(comment.email.toLowerCase())}`}/>
+					<h2>{comment.email}</h2>
+						<p>{comment.massage}</p>
+						</li>
+				)
+			}
+
+		});
+	}
+
+
 	render() {
 		return (
 				<ul>
-					{this.state.comments.map(comment =>
-						<li key={comment.id}>
-							<img src={`http://www.gravatar.com/avatar/${md5(comment.email.toLowerCase())}`}/>
-							<h2>{comment.email}</h2>
-							<p>{comment.massage}</p>
-						</li>)}
+				{this.listView()}
 				</ul>
 		);
 	}
 }
+/*<li key={comment.id}>
+ <img src={`http://www.gravatar.com/avatar/${md5(comment.email.toLowerCase())}`}/>
+ <h2>{comment.email}</h2>
+ <p>{comment.massage}</p>
+ </li>*/
 
 export default List;

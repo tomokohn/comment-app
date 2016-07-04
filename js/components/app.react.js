@@ -1,7 +1,9 @@
 import React from 'react';
 import Store from '../store.redux.js';
 import List  from './list.react';
-import Input  from './input.react';
+import Filter  from './input.react.js';
+import Input  from './filter.react.js';
+
 
 class App extends React.Component {
 	constructor() {
@@ -12,6 +14,7 @@ class App extends React.Component {
 	render() {
 		return (
 			<div>
+				<Filter />
 				<Input />
 				<List />
 			</div>

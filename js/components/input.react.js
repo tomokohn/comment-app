@@ -1,6 +1,5 @@
 import React from 'react';
 import Store from '../store.redux.js';
-import List  from './list.react';
 
 class Input extends React.Component {
 	constructor() {
@@ -19,7 +18,7 @@ class Input extends React.Component {
 
 	render() {
 		return (
-			<div>
+			<div className='input'>
 				<input type="email" placeholder="Email"  ref={node => {
 				this.state.emailInput = node;}
 				}/>
