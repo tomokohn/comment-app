@@ -46,6 +46,15 @@ form input:last-of-type {
     padding: 10px;
 
 }
+.filter{
+    border-left: 1px solid #efefef;
+    border-right: 1px solid #efefef;
+}
+ul {
+    border: 1px solid #efefef;
+    border-top: none;
+}
+
 
 li {
     list-style: none;
