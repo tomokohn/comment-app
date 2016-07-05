@@ -29,8 +29,6 @@ class List extends React.Component {
 
 	listView(){
      return this.state.comments.map((comment) => {
-			 console.log(comment)
-
 			 if (comment.visible === true) {
 				return (
 					<li key={comment.id}>
