@@ -19,7 +19,7 @@ form {
 form > *  {
     margin: 0 0 10px 0;
 }
-form input:first-child {
+form input:first-child, .filter input {
     height: 30px;
 }
 
@@ -47,10 +47,6 @@ form input:last-of-type {
 
 }
 
-.filter input {
-    height: 30px;
-}
-
 li {
     list-style: none;
     margin-bottom: 15px;
@@ -65,10 +61,12 @@ img {
     display: inline-block;
     margin-left: 5px;
     vertical-align: top;
+    max-width: 85%;
 }
 
 h2, p{
     margin: 5px 0;
+    word-wrap: break-word;
 }
 
 h2 {
