@@ -20,11 +20,7 @@ const comments = (state = [], action) => {
 						return comment;
 		}
 				});
-			console.log(newArr);
 			return newArr;
-			/*let newArr = state.filter( comment => comment.email.indexOf(action.filter) > -1 || comment.massage.indexOf(action.filter) > -1);
-			console.log(newArr, action.filter);
-			return newArr;*/
 		default: 
 			return state;
 	}

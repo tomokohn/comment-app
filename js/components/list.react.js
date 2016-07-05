@@ -35,9 +35,11 @@ class List extends React.Component {
 				return (
 					<li key={comment.id}>
 					<img src={`http://www.gravatar.com/avatar/${md5(comment.email.toLowerCase())}`}/>
-					<h2>{comment.email}</h2>
+					<div className="massage-text">
+						<h2>{comment.email}</h2>
 						<p>{comment.massage}</p>
-						</li>
+					</div>
+					</li>
 				)
 			}
 
@@ -53,10 +55,5 @@ class List extends React.Component {
 		);
 	}
 }
-/*<li key={comment.id}>
- <img src={`http://www.gravatar.com/avatar/${md5(comment.email.toLowerCase())}`}/>
- <h2>{comment.email}</h2>
- <p>{comment.massage}</p>
- </li>*/
 
 export default List;

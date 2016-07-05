@@ -28,12 +28,13 @@ class Input extends React.Component {
 
 
 	submitForm(e) {
+		console.log('submit');
 		e.preventDefault();
 		Store.dispatch({
 			type: 'ADD_COMMENT',
 			id: this.state.id++,
-			email: this.state.emailInput.value,
-			massage: this.state.massageInput.value
+			email: this.state.emailInput,
+			massage: this.state.massageInput
 		});
 		this.setState({
 			emailInput: '',
@@ -45,14 +46,14 @@ class Input extends React.Component {
 	render() {
 		return (
 			<div className='input'>
-				<form action="" onSubmit={()=>this.submitForm(e)}>
+				<form action="" onSubmit={this.submitForm}>
 					<input type="email"
-						   placeholder="Email"
+						   placeholder=" Email"
 						   required
 						   value={this.state.emailInput}
 						   onChange={this.valueChangeEmail}/>
 					<textarea type="text"
-							  placeholder="Massage"
+							  placeholder=" Massage"
 							  required
 							  value={this.state.massageInput}
 							  onChange={this.valueChangeMassage}/>
@@ -65,25 +66,3 @@ class Input extends React.Component {
 }
 
 export default Input;
-
-//<ul>
-//	{this.state.comments.map(comment =>
-//		<li key={comment.id}>
-//			<h2>{comment.email}</h2>
-//			<p>{comment.massage}</p>
-//		</li>)}
-//</ul>
-/*
-<input type="email" placeholder="Email"  ref={node => {
-				this.state.emailInput = node;}
-				}/>
-<textarea placeholder="Massage" ref={node => {
-	this.state.massageInput = node;}
-}/>
-<button onClick={() => {Store.dispatch({
-	type: 'ADD_COMMENT',
-	id: this.state.id++,
-	email: this.state.emailInput.value,
-	massage: this.state.massageInput.value
-});
-}}>+</button>*/

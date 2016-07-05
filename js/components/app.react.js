@@ -23,11 +23,3 @@ class App extends React.Component {
 }
 
 export default App;
-
-//<ul>
-//	{this.state.comments.map(comment =>
-//		<li key={comment.id}>
-//			<h2>{comment.email}</h2>
-//			<p>{comment.massage}</p>
-//		</li>)}
-//</ul>

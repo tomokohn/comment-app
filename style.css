@@ -1,19 +1,73 @@
-.input {
-    display: block;
-    margin: 10px auto;
+#app {
+    max-width:500px ;
+    margin: 0 auto;
+    background: #f9f9f9;
+    padding: 20px;
+    font-family: sans-serif ;
 }
 
-.filter {
-    display: block;
-    margin: 10px auto;
-
+form {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: 0 auto;
+    padding: 10px;
+    background: #efefef;
 
 }
 
-ul {
+form > *  {
+    margin: 0 0 10px 0;
+}
+form input:first-child {
+    height: 30px;
+}
+
+textarea {
+    height: 65px;
+}
+
+form input:last-of-type {
+    width: 80px;
+    color: white;
+    background: #40a8df;
+    border-radius: 5px;
+    height: 35px;
+    border: none;
+    margin-left: auto;
+}
+
+.filter, ul{
+    width: 90%;
+    background: white;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+
+}
+
+.filter input {
+    height: 30px;
+}
+
+li {
     list-style: none;
+    margin-bottom: 15px;
 }
-h2 {
+img {
+    height: 60px;
+    width: 60px;
+    border-radius: 3px;
+}
+
+.massage-text {
     display: inline-block;
-    margin: 0px;
+    margin-left: 5px;
+    vertical-align: top;
 }
+
+h2, p{
+    margin: 5px 0;
+}
+

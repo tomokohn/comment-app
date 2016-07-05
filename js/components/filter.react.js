@@ -18,7 +18,7 @@ class Filter extends React.Component {
 	render() {
 		return (
 			<div className='filter'>
-				<input type="text" placeholder="Filer"  ref={node => {
+				<input type="text" placeholder=" 🔍 Filter"  ref={node => {
 				this.state.filterInput = node}} onChange={this.change}
 				 />
 			</div>
@@ -27,11 +27,3 @@ class Filter extends React.Component {
 }
 
 export default Filter;
-
-//<ul>
-//	{this.state.comments.map(comment =>
-//		<li key={comment.id}>
-//			<h2>{comment.email}</h2>
-//			<p>{comment.massage}</p>
-//		</li>)}
-//</ul>
